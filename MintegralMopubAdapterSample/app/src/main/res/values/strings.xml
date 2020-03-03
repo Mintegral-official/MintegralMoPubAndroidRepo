@@ -1,0 +1,21 @@
+<resources>
+
+<!--    input your mopub placementid here before running application-->
+    <string name="banner_placementid">403f894e95b7483b9d3d410aa01ca96d</string>
+    <string name="interstitial_placementid">8353b83eddd94d7480e5404c1d9f7f37</string>
+    <string name="reward_placementid">a185f3e2eb4c4fe5822658777f06ef96</string>
+    <string name="native_placementid">your native  unit id of mopub</string>
+<!--    <string name="init_placementid">any one unit id of mopub</string>-->
+    <string name="init_placementid">a185f3e2eb4c4fe5822658777f06ef96</string>
+
+
+
+
+    <string name="app_name">MintegralMopubSample</string>
+    <string name="native_ad_normal">native_ad_normal</string>
+
+    <string name="native_ad_listview">native_ad_listview</string>
+    <string name="title_activity_native_ad_list_view">NativeAdListViewActivity</string>
+    <string name="title">ad_title</string>
+    <string name="context">ad_context</string>
+</resources>

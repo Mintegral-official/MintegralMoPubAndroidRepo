@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.mintegral.mintegralmopubadaptersample"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    jcenter()
+    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+
+    implementation('com.mopub:mopub-sdk:+@aar') {
+        transitive = true
+    }
+    implementation 'androidx.multidex:multidex:2.0.0'
+
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    implementation 'com.mintegral.msdk:mtgbanner:12.2.11'
+    implementation 'com.mintegral.msdk:interstitialvideo:12.2.11'
+    implementation 'com.mintegral.msdk:videojs:12.2.11'
+    implementation 'com.mintegral.msdk:nativeex:12.2.11'
+    implementation 'com.mintegral.msdk:mtgjscommon:12.2.11'
+    implementation 'com.mintegral.msdk:playercommon:12.2.11'
+    implementation 'com.mintegral.msdk:reward:12.2.11'
+    implementation 'com.mintegral.msdk:videocommon:12.2.11'
+    implementation 'com.mintegral.msdk:common:12.2.11'
+    implementation 'com.mintegral.msdk:mtgnative:12.2.11'
+    implementation 'com.mintegral.msdk:mtgbid:12.2.11'
+    // implementation 'com.mopub.mediation:mintegral:12.2.11.0'
+
+    implementation project(':supported_adapter')
+
+
+}
