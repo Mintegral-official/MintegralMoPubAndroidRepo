@@ -22,6 +22,7 @@ import com.mopub.common.SdkInitializationListener;
 import com.mopub.common.logging.MoPubLog;
 import com.mopub.common.privacy.ConsentDialogListener;
 import com.mopub.common.privacy.PersonalInfoManager;
+import com.mopub.mobileads.MintegralAdapterConfiguration;
 import com.mopub.mobileads.MoPubErrorCode;
 
 import static com.mopub.common.logging.MoPubLog.LogLevel.DEBUG;
@@ -68,6 +69,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
 
         final SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(YOUR_AD_UNIT_ID);
+        configBuilder.withAdditionalNetwork(MintegralAdapterConfiguration.class.getName());
 
 
         if (BuildConfig.DEBUG) {

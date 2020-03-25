@@ -20,7 +20,7 @@ import com.mopub.common.MoPub;
 import com.mopub.common.OnNetworkInitializationFinishedListener;
 import com.mopub.common.Preconditions;
 import com.mopub.common.logging.MoPubLog;
-import com.mopub.mobileads.mintegral.BuildConfig;
+
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -36,7 +36,7 @@ public class MintegralAdapterConfiguration extends BaseAdapterConfiguration {
 
     private static final String ADAPTER_VERSION = BuildConfig.VERSION_NAME;
     private static final String SDK_VERSION = MTGConfiguration.SDK_VERSION;
-    private static final String MOPUB_NETWORK_NAME = BuildConfig.NETWORK_NAME;
+    private static final String MOPUB_NETWORK_NAME = "mintegral";
 
 
     private static boolean isSDKInitialized = false;
@@ -62,8 +62,9 @@ public class MintegralAdapterConfiguration extends BaseAdapterConfiguration {
     @Override
     public String getBiddingToken(@NonNull Context context) {
         Preconditions.checkNotNull(context);
-
+        if (!isSDKInitialized) return null;
         return BidManager.getBuyerUid(context);
+//        return null;
     }
 
     @NonNull
